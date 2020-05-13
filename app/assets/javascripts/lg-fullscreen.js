@@ -51,8 +51,13 @@
     };
 
     Fullscreen.prototype.exitFullscreen = function() {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
+        if (document.exitFullscreen()) {
+           try{
+               document.exitFullscreen();
+            }
+            catch(e){
+               console.log('y') 
+            }
         } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         } else if (document.mozCancelFullScreen) {
